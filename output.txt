@@ -1,0 +1,9 @@
+firstWord: Dr.Nick:
+lastWords: everybody!"
+countCharacter: 3 - e characters
+depunctuate: Dr Nick: "Hello everybody "
+ezEncrpt: hplinahtoripts
+lowerCaser: philanthropist
+lowerCase: philanthropist
+upperCaser: PHILANTHROPIST
+makeCapital: Philanthropist
