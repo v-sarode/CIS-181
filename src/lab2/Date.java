@@ -111,52 +111,90 @@ public class Date {
     	 */
     	boolean validDate = false;
     	boolean validDay= false;
+    	boolean isLeapYear = false;
     	
     	
-    	/**
-    	 * DESC: Check for the entered month is valid or not i.e. within the range [1-12]
-    	 */
-    	if(mon > 0 && mon < 13){
-    	//	 System.out.println("month is in the range ...");
-    		 validDate = true;
-    		 
-    		 /**
-    		  * DESC: Check for the year is leap year or not  
-    		  */
-    		 if(year % 400 == 0){
-    			 validDate = true;
-    			 
-    			 if (mon % 2 == 0){
-    				 validDay = (day > 0 && day < 31) ? true:false ;
-    				 if(mon == 2){
-    					 validDay = (day > 0 && day < 30) ? true:false ;	 
-    				 }
-    				 if(mon == 8){
-    					 
-    				 }
-    			 }else{
-    				 validDay = (day > 0 && day < 32) ? true:false ;
-    			 }
-    			
-    		 }else{
-    			 validDate = true;
-    			 
-    			 if (mon % 2 == 0){
-    				 validDay = (day > 0 && day < 31) ? true:false ;
-    				 if(mon == 2){
-    					 validDay = (day > 0 && day < 29) ? true:false ;	 
-    				 }
-    			 }else{
-    				 validDay = (day > 0 && day < 32) ? true:false ;
-    			 }
-    			 
-    		 }
-    		 
+    	 if((year % 400 == 0) || ((year % 4 == 0) && (year %100 !=0)))
+         {
+             isLeapYear = true;
+         }    	
+    	
+    	
+    	
+    	switch(mon){
+    	
+    	case 1:
+    		validDay = (day > 0 && day <= 31) ? true:false ;
+    		validDate = true;    		
+    		break;
+    		
+    		
+    	case 2:
+    		if(isLeapYear){
+    			validDay = (day > 0 && day <= 29) ? true:false ;
+    			validDate = true;
+    		}else{
+    			validDay = (day > 0 && day <= 28) ? true:false ;
+    			validDate = true;
+    		}
+    		break;
 
-    	}else{
-    		System.out.println("month is not valid ");
+    	case 3:
+    		validDay = (day > 0 && day <= 31) ? true:false ;
+    		validDate = true;    		
+    		break;
+
+    	case 4:
+    		validDay = (day > 0 && day <= 30) ? true:false ;
+    		validDate = true;    		
+    		break;
+    		
+    	case 5:
+    		validDay = (day > 0 && day <= 31) ? true:false ;
+    		validDate = true;    		
+    		break;
+
+    	case 6:
+    		validDay = (day > 0 && day <= 30) ? true:false ;
+    		validDate = true;    		
+    		break;
+
+    	case 7:
+    		validDay = (day > 0 && day <= 31) ? true:false ;
+    		validDate = true;    		
+    		break;
+    		
+    	case 8:
+    		validDay = (day > 0 && day <= 31) ? true:false ;
+    		validDate = true;    		
+    		break;
+
+    	case 9:
+    		validDay = (day > 0 && day <= 30) ? true:false ;
+    		validDate = true;    		
+    		break;
+
+    	case 10:
+    		validDay = (day > 0 && day <= 31) ? true:false ;
+    		validDate = true;    		
+    		break;
+    		
+    	case 11:
+    		validDay = (day > 0 && day <= 30) ? true:false ;
+    		validDate = true;    		
+    		break;
+
+    	case 12:
+    		validDay = (day > 0 && day <= 31) ? true:false ;
+    		validDate = true; 
+
+    		break;
+    		
+    	default:
+    		validDay = false;
+    		validDate = false; 
     	}
-
+    	
         return (validDate && validDay) ? true: false;
     }
 
@@ -178,28 +216,47 @@ public class Date {
 
     	if(Date.isLegitimate(month, day, year)){
     		
-    		if(month % 2 == 0){
 
-    			if(month == 2 && day == 29){
-        			aDate.setDay(1);
-        			aDate.setMonth(month + 1);
-        		}else if(day == 30){
-    				aDate.setDay(1);
-    				aDate.setMonth(month + 1);
-    			}else if(day > 0 && day < 30){
-    				aDate.setDay(day + 1);	
-    			}
+    		if(month < 7 && month % 2 == 0){
+					if(month == 2 && day == 29){
+						aDate.setDay(1);
+						aDate.setMonth(month + 1);
+					}else if(day == 30){
+						aDate.setDay(1);
+						aDate.setMonth(month + 1);
+					}else if(day > 0 && day < 30){
+						aDate.setDay(day + 1);	
+					}
     			
-    		}else{
-    			if(day == 31){
-    				aDate.setDay(1);
-    				aDate.setMonth(month + 1);
-    			}else if(day > 0 && day < 30){
-    				aDate.setDay(day + 1);	
-    			}
+    		}else if (month > 7 && month % 2 == 0){
+		    	if(month == 12 && day == 31){
+					aDate.setDay(1);
+					aDate.setMonth(1);
+					aDate.setYear(year + 1);	
+		    		
+		    	}else if(day == 31){
+						aDate.setDay(1);
+						aDate.setMonth(month + 1);
+					}else if(day > 0 && day < 30){
+						aDate.setDay(day + 1);	
+					}
+    			
+    		}else if (month < 8 && month % 2 != 0 ){
+	    		if(day == 31){
+					aDate.setDay(1);
+					aDate.setMonth(month + 1);
+				}else if(day > 0 && day < 30){
+					aDate.setDay(day + 1);	
+				}
+    			
+    		}else if (month > 8 && month != 0 ){
+    			if(day == 30){
+					aDate.setDay(1);
+					aDate.setMonth(month + 1);
+				}else if(day > 0 && day < 30){
+					aDate.setDay(day + 1);	
+				}
     		}
-    		
-    		
     		
     	}else{
     		System.out.println("ERROR: ENTERED DATE IS NOT VALID...");
