@@ -1,0 +1,17 @@
+Input two intergers separated by a space character (enter "q" to quit): 
+1 2
+Enter method acker: m = 1, n = 2
+Enter meth
+od acker: m = 1, n = 1
+Enter method acker: m = 1, n = 0
+Enter method acker: m = 0, n = 1
+Leave method acker: acker(0, 1) = 2
+Leave method acker: acker(1, 0) = 2
+Enter method acker: m = 0, n = 2
+Leave 
+method acker: acker(0, 2) = 3
+Leave method acker: acker(1, 1) = 3
+Enter method acker: m = 0, n = 3
+Leave method acker: acker(0, 3) = 4
+Leave method acker: acker(1, 2) = 4
+Total number of invocations = 6, result = 4
