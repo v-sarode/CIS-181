@@ -218,7 +218,12 @@ public class Date {
     		
 
     		if(month < 7 && month % 2 == 0){
-					if(month == 2 && day == 29){
+    			
+    			
+    			
+    	    	 if((year % 400 == 0) || ((year % 4 == 0) && (year %100 !=0)))
+    	         {
+ 					if(month == 2 && day == 29){
 						aDate.setDay(1);
 						aDate.setMonth(month + 1);
 					}else if(day == 30){
@@ -227,6 +232,21 @@ public class Date {
 					}else if(day > 0 && day < 30){
 						aDate.setDay(day + 1);	
 					}
+    	             
+    	         }else{
+
+ 					if(month == 2 && day == 28){
+						aDate.setDay(1);
+						aDate.setMonth(month + 1);
+					}else if(day == 30){
+						aDate.setDay(1);
+						aDate.setMonth(month + 1);
+					}else if(day > 0 && day < 30){
+						aDate.setDay(day + 1);	
+					}
+
+    	         }
+    			
     			
     		}else if (month > 7 && month % 2 == 0){
 		    	if(month == 12 && day == 31){
