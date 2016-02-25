@@ -24,12 +24,15 @@ public class AckerFunction{
 		int result = 0;
 		
 		this.numberOfInvocations++;
-		spaces++;printSpaces();System.out.println("Entering method acker: m = "+m+", n = "+n);
+		spaces++;//printSpaces();
+		//System.out.println("Entering method acker: m = "+m+", n = "+n);
 		if(m == 0){
-			spaces--;printSpaces();System.out.println("Leaving method acker: m = "+m+", n = "+n);
+			spaces--;
+			//printSpaces();System.out.println("Leaving method acker: m = "+m+", n = "+n);
 			result = n+1;	
 		}else if (n == 0){
-			spaces--;printSpaces();System.out.println("Leaving method acker: m = "+m+", n = "+n);
+			spaces--;
+			//printSpaces();System.out.println("Leaving method acker: m = "+m+", n = "+n);
 			result =  acker(m-1 , 1);
 		}else{
 		//	spaces++;printSpaces();System.out.println("Entering method acker: m = "+m+", n = "+n);
