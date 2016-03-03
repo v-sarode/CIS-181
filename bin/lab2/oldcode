@@ -1,0 +1,71 @@
+    	
+    	/**
+    	 * DESC: Check for the entered month is valid or not i.e. within the range [1-12]
+    	 */
+    	if(mon > 0 && mon < 13){
+    	//	 System.out.println("month is in the range ...");
+    		 validDate = true;
+    		 
+    		 /**
+    		  * DESC: Check for the year is leap year or not  
+    		  */
+    		 if(year % 400 == 0){
+    			 validDate = true;
+    			 
+    			 if (mon % 2 == 0){
+    				 validDay = (day > 0 && day < 31) ? true:false ;
+    				 if(mon == 2){
+    					 validDay = (day > 0 && day < 30) ? true:false ;	 
+    				 }
+    				 if(mon == 8){
+    					 
+    				 }
+    			 }else{
+    				 validDay = (day > 0 && day < 32) ? true:false ;
+    			 }
+    			
+    		 }else{
+    			 validDate = true;
+    			 
+    			 if (mon % 2 == 0){
+    				 validDay = (day > 0 && day < 31) ? true:false ;
+    				 if(mon == 2){
+    					 validDay = (day > 0 && day < 29) ? true:false ;	 
+    				 }
+    			 }else{
+    				 validDay = (day > 0 && day < 32) ? true:false ;
+    			 }
+    			 
+    		 }
+    		 
+
+    	}else{
+    		System.out.println("month is not valid ");
+    	}
+
+// ==========================================
+
+
+ADVANCE MENT IN THE DATE DAY BY ONE DAY
+    		
+//    		if(month % 2 == 0){
+//    			
+//    			if(month == 2 && day == 29){
+//        			aDate.setDay(1);
+//        			aDate.setMonth(month + 1);
+//        		}else if(day == 30){
+//    				aDate.setDay(1);
+//    				aDate.setMonth(month + 1);
+//    			}else if(day > 0 && day < 30){
+//    				aDate.setDay(day + 1);	
+//    			}
+//    			
+//    		}else{
+//    			if(day == 31){
+//    				aDate.setDay(1);
+//    				aDate.setMonth(month + 1);
+//    			}else if(day > 0 && day < 30){
+//    				aDate.setDay(day + 1);	
+//    			}
+//    		}
+    		
