@@ -1,7 +1,7 @@
 package lab4.set;
 /***********************************************************
  * Lab #4 (CIS 181)                             *
- * Submitted By: Your name here !!!                        *
+ * Submitted By: FABIO ANDRADE                        *
  * SID: Your new SID starting with "00"                    *
  * Date: Your submission date                              *
  ***********************************************************/
@@ -98,7 +98,16 @@ public class IntSet {
 
     	// TODO 1: implement the remove method.
 
-    	return true; // dummy return
+    	  if ((element <= max && element >= min) && this.isElement(element)) {
+  		    this.contents[element] = false;
+  		    this.cardinality--;
+  		    return true;
+  	    } else {
+  	    	System.out.println("Precondition is NOT satisfied: element = " + element);
+  		    return false;
+  	    }    	
+    	
+    	//return true; // dummy return
     }
 
     //Operations
@@ -111,6 +120,14 @@ public class IntSet {
     	IntSet newSet = new IntSet();
 
     	// TODO 2: implement the union method.
+    	
+    	for(int i = 0 ; i< this.contents.length; i++ ){
+    		if(this.contents[i] == true || s.contents[i] == true){
+    			newSet.contents[i] = true;
+    		}
+    		
+    	}
+    	
 
     	return newSet;
     }
@@ -123,6 +140,12 @@ public class IntSet {
     	IntSet newSet = new IntSet();
 
     	// TODO 3: implement the intersection method.
+    	for(int i = 0 ; i< this.contents.length; i++ ){
+    		if(this.contents[i] == true && s.contents[i] == true){
+    			newSet.contents[i] = true;
+    		}
+    		
+    	}
 
     	return newSet;
     }
@@ -136,7 +159,14 @@ public class IntSet {
     	IntSet newSet = new IntSet();
 
     	// TODO 4: implement the complement method.
-
+    	
+    	for(int i = 0 ; i< this.contents.length; i++ ){
+    		if(this.contents[i] == true){
+    			newSet.contents[i] = false;
+    		}else if (this.contents[i] == false){
+    			newSet.contents[i] = true;
+    		}
+    	}
     	return newSet;
     }
 
